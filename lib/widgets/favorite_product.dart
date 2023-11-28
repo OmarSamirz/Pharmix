@@ -104,13 +104,13 @@ class FavoriteProduct extends StatelessWidget {
             Container(
               width: double.infinity,
               decoration: const ShapeDecoration(
+                color: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(10),
                     bottomRight: Radius.circular(10),
                   ),
                 ),
-                color: Colors.white,
                 shadows: [
                   BoxShadow(
                     color: Color(0x3F8FBDFD),

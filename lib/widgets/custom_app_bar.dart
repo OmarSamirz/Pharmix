@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
@@ -8,7 +10,6 @@ import 'package:pharmix/widgets/icon_component.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
-    this.size = 100,
     this.title = '',
     this.isSearch = false,
     this.isFilter = false,
@@ -17,7 +18,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.thirdLeading,
   });
 
-  final double size;
   final String title;
   final bool? isSearch;
   final bool? isFilter;
@@ -118,6 +118,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize =>
-      Size(double.maxFinite, isSearch == true ? 160 : size);
+  Size get preferredSize {
+    double size = (Platform.isAndroid) ? 100 : 70;
+
+    return Size(double.maxFinite, isSearch == true ? 160 : size);
+  }
 }

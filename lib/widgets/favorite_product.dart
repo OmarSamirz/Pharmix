@@ -121,8 +121,11 @@ class FavoriteProduct extends StatelessWidget {
                     )
                   ],
                 ),
-                child: const Center(
-                  child: CustomOutlinedButton(),
+                child: Center(
+                  child: SizedBox(
+                    height: MediaQuery.sizeOf(context).height / 25,
+                    child: const CustomOutlinedButton(),
+                  ),
                 ),
               ),
             ),

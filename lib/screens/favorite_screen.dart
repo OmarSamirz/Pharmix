@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/data/product_list.dart';
 import 'package:pharmix/widgets/custom_app_bar.dart';

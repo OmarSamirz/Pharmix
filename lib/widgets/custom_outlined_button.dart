@@ -8,33 +8,30 @@ class CustomOutlinedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-      child: OutlinedButton(
-        onPressed: () {},
-        style: ButtonStyle(
-          surfaceTintColor:
-              MaterialStateColor.resolveWith((states) => priceColor),
-          overlayColor:
-              MaterialStateColor.resolveWith((states) => Colors.transparent),
-          side: MaterialStateProperty.resolveWith(
-            (states) => BorderSide(
-              color: priceColor,
-              width: 3,
-            ),
-          ),
-          shape: MaterialStateProperty.resolveWith(
-            (states) => RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
+    return OutlinedButton(
+      onPressed: () {},
+      style: ButtonStyle(
+        surfaceTintColor:
+            MaterialStateColor.resolveWith((states) => priceColor),
+        overlayColor:
+            MaterialStateColor.resolveWith((states) => Colors.transparent),
+        side: MaterialStateProperty.resolveWith(
+          (states) => BorderSide(
+            color: priceColor,
+            width: 3,
           ),
         ),
-        child: Text(
-          'Add to Cart',
-          style: TextStyle(
-            fontSize: 13,
-            color: priceColor,
+        shape: MaterialStateProperty.resolveWith(
+          (states) => RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
+        ),
+      ),
+      child: Text(
+        'Add to Cart',
+        style: TextStyle(
+          fontSize: 13,
+          color: priceColor,
         ),
       ),
     );

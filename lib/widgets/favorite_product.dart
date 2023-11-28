@@ -66,7 +66,7 @@ class FavoriteProduct extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,26 +101,30 @@ class FavoriteProduct extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              decoration: const ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: const ShapeDecoration(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
                   ),
+                  shadows: [
+                    BoxShadow(
+                      color: Color(0x3F8FBDFD),
+                      blurRadius: 10,
+                      offset: Offset(0, -5),
+                      spreadRadius: 2,
+                    )
+                  ],
                 ),
-                shadows: [
-                  BoxShadow(
-                    color: Color(0x3F8FBDFD),
-                    blurRadius: 10,
-                    offset: Offset(0, -5),
-                    spreadRadius: 2,
-                  )
-                ],
+                child: const Center(
+                  child: CustomOutlinedButton(),
+                ),
               ),
-              child: const CustomOutlinedButton(),
             ),
           ],
         ),

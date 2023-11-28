@@ -51,22 +51,22 @@ class _TabScreen extends State<TabScreen> {
           Image.asset(
             navigationHomeIcon,
             color: (_selectedScreenIndex == 0) ? Colors.white : null,
-            width: 85,
+            width: 80,
           ),
           Image.asset(
             navigationHeartIcon,
             color: (_selectedScreenIndex == 1) ? Colors.white : null,
-            width: 85,
+            width: 80,
           ),
           Image.asset(
             navigationOrderIcon,
             color: (_selectedScreenIndex == 2) ? Colors.white : null,
-            width: 85,
+            width: 80,
           ),
           Image.asset(
             navigationProfileIcon,
             color: (_selectedScreenIndex == 3) ? Colors.white : null,
-            width: 85,
+            width: 80,
           ),
         ],
       ),

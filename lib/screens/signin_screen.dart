@@ -89,10 +89,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ),
                 ),
-                BlueButton(
-                  title: 'Sign In',
-                  chosenScreen: const SplashScreen(),
-                  checkInputs: _checkInputs,
+                SizedBox(
+                  width: double.infinity,
+                  height: MediaQuery.sizeOf(context).height / 13,
+                  child: BlueButton(
+                    title: 'Sign In',
+                    chosenScreen: const SplashScreen(),
+                    checkInputs: _checkInputs,
+                    fontSize: 25,
+                    radiusCurve: 15,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Row(

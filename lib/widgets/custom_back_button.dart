@@ -18,8 +18,8 @@ class CustomBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 27,
-      width: 27,
+      height: 23,
+      width: 23,
       decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -34,7 +34,7 @@ class CustomBackButton extends StatelessWidget {
         padding: const EdgeInsets.all(0),
         icon: const Icon(Icons.arrow_back_ios_sharp),
         color: Colors.black,
-        iconSize: 18,
+        iconSize: 17,
         style: ButtonStyle(
           overlayColor:
               MaterialStateColor.resolveWith((states) => Colors.transparent),

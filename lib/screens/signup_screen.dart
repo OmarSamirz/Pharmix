@@ -76,8 +76,14 @@ class SignUpScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               const SizedBox(height: 20),
-              const BlueButton(
-                title: 'Sign Up',
+              SizedBox(
+                width: double.infinity,
+                height: MediaQuery.sizeOf(context).height / 13,
+                child: const BlueButton(
+                  title: 'Sign Up',
+                  fontSize: 25,
+                  radiusCurve: 15,
+                ),
               ),
               const SizedBox(height: 20),
               Row(

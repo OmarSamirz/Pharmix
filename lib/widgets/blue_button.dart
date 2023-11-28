@@ -7,22 +7,22 @@ class BlueButton extends StatelessWidget {
   const BlueButton({
     super.key,
     required this.title,
-    this.width,
-    this.height,
     this.fontWeight,
+    this.fontSize,
     this.blurRadius,
     this.offsetY,
+    this.radiusCurve,
     this.spreadRadius,
     this.chosenScreen,
     this.checkInputs,
   });
 
   final String title;
-  final double? width;
-  final double? height;
   final FontWeight? fontWeight;
+  final double? fontSize;
   final double? blurRadius;
   final double? offsetY;
+  final double? radiusCurve;
   final double? spreadRadius;
   final Widget? chosenScreen;
   final bool Function()? checkInputs;
@@ -42,19 +42,9 @@ class BlueButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = 0.0;
-    double height = 0.0;
-    if (this.width == null) {
-      width = MediaQuery.sizeOf(context).width;
-      height = width * (13 / 85);
-    } else {
-      width = this.width!;
-      height = this.height!;
-    }
-
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular((width + height) * 0.03614),
+        borderRadius: BorderRadius.circular(radiusCurve ?? 10),
         boxShadow: [
           BoxShadow(
             color: const Color(0xFF8FBDFD),
@@ -71,23 +61,20 @@ class BlueButton extends StatelessWidget {
           }
         },
         style: ButtonStyle(
-          fixedSize: MaterialStateProperty.resolveWith(
-            (states) => Size(width, height),
-          ),
           overlayColor:
               MaterialStateColor.resolveWith((states) => Colors.transparent),
           backgroundColor:
               MaterialStateColor.resolveWith((states) => blueColor),
           shape: MaterialStateProperty.resolveWith(
             (states) => RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular((width + height) * 0.03614),
+              borderRadius: BorderRadius.circular(radiusCurve ?? 10),
             ),
           ),
         ),
         child: Text(
           title,
           style: TextStyle(
-            fontSize: (width + height) * 0.05501,
+            fontSize: fontSize ?? 20,
             color: Colors.white,
             fontWeight: fontWeight ?? FontWeight.bold,
           ),

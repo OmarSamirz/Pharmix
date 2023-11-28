@@ -103,7 +103,6 @@ class FavoriteProduct extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                width: double.infinity,
                 decoration: const ShapeDecoration(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(

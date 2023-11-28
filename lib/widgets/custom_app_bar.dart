@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
@@ -121,8 +120,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize {
-    double size = (Platform.isAndroid) ? 100 : 70;
+    double size = (Platform.isAndroid) ? 85 : 70;
 
-    return Size(double.maxFinite, isSearch == true ? 160 : size);
+    return Size(double.maxFinite, isSearch == true ? 150 : size);
   }
 }

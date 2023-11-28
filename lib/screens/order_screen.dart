@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/image_path.dart';
+import 'package:pharmix/data/order_list.dart';
 import 'package:pharmix/data/product_list.dart';
 import 'package:pharmix/widgets/custom_app_bar.dart';
-import 'package:pharmix/widgets/home_product.dart';
 import 'package:pharmix/widgets/icon_component.dart';
+import 'package:pharmix/widgets/order_product.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});
@@ -17,26 +18,27 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreen extends State<OrderScreen> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent,
       appBar: CustomAppBar(
         title: 'Orders',
-        secondLeading: IconComponent(icon: cartIcon),
+        secondLeading: IconComponent(icon: cartIcon, size: 18),
         thirdLeading: IconComponent(icon: notificationIcon),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+        padding: const EdgeInsets.fromLTRB(20, 15, 20, 0),
         child: Column(
           children: [
-            ListView.builder(
-              itemCount: productList.length,
-              itemBuilder: (_, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: HomeProduct(product: productList[index]),
-                );
-              },
+            Expanded(
+              child: ListView.builder(
+                // itemCount: productList.length,
+                itemCount: 1,
+                itemBuilder: (_, index) {
+                  return OrderProduct(order: order1, product: product1);
+                },
+              ),
             ),
           ],
         ),

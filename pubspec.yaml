@@ -67,14 +67,20 @@ flutter:
   assets:
     - assets/images/apple_icon.png
     - assets/images/bottom_right.png
+    - assets/images/cart_icon.png
     - assets/images/facebook_icon.png
+    - assets/images/filter_icon.png
     - assets/images/google_icon.png
     - assets/images/heart_icon.png
-    - assets/images/home_icon.png
+    - assets/images/location_icon.png
     - assets/images/login_photo.png
-    - assets/images/order_icon.png
+    - assets/images/navigation_heart_icon.png
+    - assets/images/navigation_home_icon.png
+    - assets/images/navigation_order_icon.png
+    - assets/images/navigation_profile_icon.png
+    - assets/images/notification_icon.png
     - assets/images/product_image.png
-    - assets/images/profile_icon.png
+    - assets/images/search_icon.png
     - assets/images/top_left.png
 
 

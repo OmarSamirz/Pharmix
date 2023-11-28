@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmix/Utilities/image_path.dart';
 
 class APIBar extends StatelessWidget {
   const APIBar({
@@ -15,13 +16,13 @@ class APIBar extends StatelessWidget {
     var imagePath = '';
     switch (signType) {
       case 'google':
-        imagePath = 'assets/images/google_icon.png';
+        imagePath = googleIcon;
         break;
       case 'apple':
-        imagePath = 'assets/images/apple_icon.png';
+        imagePath = appleIcon;
         break;
       case 'facebook':
-        imagePath = 'assets/images/facebook_icon.png';
+        imagePath = facebookIcon;
         break;
     }
 

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
+import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/widgets/custom_back_button.dart';
+import 'package:pharmix/widgets/custom_search_bar.dart';
+import 'package:pharmix/widgets/icon_component.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     this.size = 100,
     this.title = '',
+    this.isSearch = false,
+    this.isFilter = false,
     this.firstLeading,
     this.secondLeading,
     this.thirdLeading,
@@ -14,9 +19,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final double size;
   final String title;
-  final Widget? firstLeading;
-  final Widget? secondLeading;
-  final Widget? thirdLeading;
+  final bool? isSearch;
+  final bool? isFilter;
+  final IconComponent? firstLeading;
+  final IconComponent? secondLeading;
+  final IconComponent? thirdLeading;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +47,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 120 / 2.5, 20, 0),
+          padding:
+              EdgeInsets.fromLTRB(20, isSearch == true ? 0 : 120 / 2.5, 20, 0),
           child: Stack(
             children: [
               Positioned.fill(
@@ -67,13 +75,41 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     if (secondLeading != null)
                       Padding(
                         padding: EdgeInsets.only(
-                            right: (thirdLeading != null) ? 10 : 0),
+                          right: (thirdLeading != null) ? 12 : 0,
+                        ),
                         child: secondLeading!,
                       ),
                     if (thirdLeading != null) thirdLeading!,
                   ],
                 ),
               ),
+              if (isSearch == true)
+                Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 12.0),
+                            child: CustomSearchBar(
+                              isClick: false,
+                            ),
+                          ),
+                        ),
+                        if (isFilter == true)
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: ImageIcon(
+                              AssetImage(filterIcon),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
@@ -82,5 +118,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size(double.maxFinite, size);
+  Size get preferredSize =>
+      Size(double.maxFinite, isSearch == true ? 160 : size);
 }

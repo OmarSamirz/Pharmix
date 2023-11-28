@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
+import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/data/product_list.dart';
 import 'package:pharmix/widgets/custom_app_bar.dart';
 import 'package:pharmix/widgets/favorite_product.dart';
@@ -20,10 +21,10 @@ class _FavoriteScreen extends State<FavoriteScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: primaryColor,
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         title: 'Favorites',
         firstLeading: IconComponent(
-          icon: Icons.filter_alt_outlined,
+          icon: filterIcon,
         ),
       ),
       body: Padding(

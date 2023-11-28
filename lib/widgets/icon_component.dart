@@ -10,7 +10,7 @@ class IconComponent extends StatelessWidget {
     this.chosenScreen,
   });
 
-  final IconData icon;
+  final String icon;
   final Color? color;
   final Widget? chosenScreen;
 
@@ -55,14 +55,10 @@ class IconComponent extends StatelessWidget {
             ),
           ),
           IconButton(
-            // icon: Icon(
-            //   icon,
-            //   size: 24,
-            //   color: color ?? const Color(0xFF4495FE),
-            // ),
             icon: ImageIcon(
-              const AssetImage("assets/images/heart_icon.png"),
+              AssetImage(icon),
               color: color ?? const Color(0xFF4495FE),
+              size: 25,
             ),
             style: ButtonStyle(
               overlayColor: MaterialStateColor.resolveWith(

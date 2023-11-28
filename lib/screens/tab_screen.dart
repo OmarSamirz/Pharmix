@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
+import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/screens/favorite_screen.dart';
 
 class TabScreen extends StatefulWidget {
@@ -31,7 +32,7 @@ class _TabScreen extends State<TabScreen> {
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedScreenIndex,
         onTap: _selectScreen,
-        height: 70,
+        height: 65,
         buttonBackgroundColor: const Color(0xFF1479FF),
         backgroundColor: Colors.transparent,
         animationDuration: const Duration(
@@ -39,19 +40,19 @@ class _TabScreen extends State<TabScreen> {
         ),
         items: [
           Image.asset(
-            'assets/images/home_icon.png',
+            navigationHomeIcon,
             color: (_selectedScreenIndex == 0) ? Colors.white : null,
           ),
           Image.asset(
-            'assets/images/heart_icon.png',
+            navigationHeartIcon,
             color: (_selectedScreenIndex == 1) ? Colors.white : null,
           ),
           Image.asset(
-            'assets/images/order_icon.png',
+            navigationOrderIcon,
             color: (_selectedScreenIndex == 2) ? Colors.white : null,
           ),
           Image.asset(
-            'assets/images/profile_icon.png',
+            navigationProfileIcon,
             color: (_selectedScreenIndex == 3) ? Colors.white : null,
           ),
         ],

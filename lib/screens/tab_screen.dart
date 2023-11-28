@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/screens/favorite_screen.dart';
+import 'package:pharmix/screens/order_screen.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});
@@ -26,13 +27,21 @@ class _TabScreen extends State<TabScreen> {
   Widget build(BuildContext context) {
     Widget activeScreen = const FavoriteScreen();
 
+    switch (_selectedScreenIndex) {
+      case 2:
+        activeScreen = const OrderScreen();
+        break;
+      default:
+        activeScreen = const FavoriteScreen();
+    }
+
     return Scaffold(
       backgroundColor: primaryColor,
       // extendBodyBehindAppBar: true,
       bottomNavigationBar: CurvedNavigationBar(
         index: _selectedScreenIndex,
         onTap: _selectScreen,
-        height: 65,
+        height: 70,
         buttonBackgroundColor: const Color(0xFF1479FF),
         backgroundColor: Colors.transparent,
         animationDuration: const Duration(
@@ -42,18 +51,22 @@ class _TabScreen extends State<TabScreen> {
           Image.asset(
             navigationHomeIcon,
             color: (_selectedScreenIndex == 0) ? Colors.white : null,
+            width: 85,
           ),
           Image.asset(
             navigationHeartIcon,
             color: (_selectedScreenIndex == 1) ? Colors.white : null,
+            width: 85,
           ),
           Image.asset(
             navigationOrderIcon,
             color: (_selectedScreenIndex == 2) ? Colors.white : null,
+            width: 85,
           ),
           Image.asset(
             navigationProfileIcon,
             color: (_selectedScreenIndex == 3) ? Colors.white : null,
+            width: 85,
           ),
         ],
       ),

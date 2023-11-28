@@ -20,7 +20,7 @@ class _FavoriteScreen extends State<FavoriteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: primaryColor,
+      backgroundColor: Colors.transparent,
       appBar: CustomAppBar(
         title: 'Favorites',
         firstLeading: IconComponent(
@@ -28,7 +28,7 @@ class _FavoriteScreen extends State<FavoriteScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 10, bottom: 0),
+        padding: const EdgeInsets.only(top: 10),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,

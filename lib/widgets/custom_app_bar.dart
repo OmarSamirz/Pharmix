@@ -69,7 +69,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     firstLeading ??
                         Transform.translate(
                           offset: const Offset(0, 0),
-                          child: const CustomBackButton(),
+                          child: (title != 'Orders' && title != 'Profile')
+                              ? const CustomBackButton()
+                              : null,
                         ),
                     const Spacer(),
                     if (secondLeading != null)

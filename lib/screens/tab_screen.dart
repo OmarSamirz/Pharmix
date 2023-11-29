@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/screens/favorite_screen.dart';
+import 'package:pharmix/screens/home_screen.dart';
 import 'package:pharmix/screens/order_screen.dart';
 
 class TabScreen extends StatefulWidget {
@@ -25,14 +26,21 @@ class _TabScreen extends State<TabScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget activeScreen = const FavoriteScreen();
+    Widget activeScreen = const HomeScreen();
 
     switch (_selectedScreenIndex) {
+      case 0:
+        activeScreen = const HomeScreen();
+        break;
+      case 1:
+        activeScreen = const FavoriteScreen();
+        break;
       case 2:
         activeScreen = const OrderScreen();
         break;
       default:
-        activeScreen = const FavoriteScreen();
+        activeScreen = const HomeScreen();
+        break;
     }
 
     return Scaffold(

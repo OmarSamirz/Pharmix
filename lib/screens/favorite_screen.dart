@@ -27,7 +27,7 @@ class _FavoriteScreen extends State<FavoriteScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.only(top: 20),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,

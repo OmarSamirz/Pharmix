@@ -5,14 +5,13 @@ var now = DateTime.now();
 
 var afterMinutes = now.add(const Duration(minutes: 30));
 
-
 var order1 = Order(
   1,
   150 - 0.001,
   true,
-  DateTime.now(),
+  DateFormat('yyyy-mm-dd').format(now),
   false,
-  false,
+  true,
   false,
   DateFormat('hh:mm a').format(now),
   DateFormat('hh:mm a').format(afterMinutes),

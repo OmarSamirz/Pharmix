@@ -14,7 +14,7 @@ class Order {
   final int id;
   final double price;
   final bool isActive;
-  final DateTime? date;
+  final String date;
   final bool paymentType;
   final bool isDelivered;
   final bool isPrescription;

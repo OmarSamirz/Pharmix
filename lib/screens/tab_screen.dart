@@ -16,7 +16,7 @@ class TabScreen extends StatefulWidget {
 }
 
 class _TabScreen extends State<TabScreen> {
-  int _selectedScreenIndex = 1;
+  int _selectedScreenIndex = 0;
 
   void _selectScreen(int index) {
     setState(() {

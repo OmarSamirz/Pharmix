@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
-import 'package:pharmix/screens/splash_screen.dart';
+import 'package:pharmix/screens/tab_screen.dart';
 import 'package:pharmix/widgets/api_bar.dart';
 import 'package:pharmix/widgets/custom_app_bar.dart';
 import 'package:pharmix/widgets/blue_button.dart';
@@ -94,7 +94,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: MediaQuery.sizeOf(context).height / 13,
                   child: BlueButton(
                     title: 'Sign In',
-                    chosenScreen: const SplashScreen(),
+                    chosenScreen: const TabScreen(),
                     checkInputs: _checkInputs,
                     fontSize: 25,
                     radiusCurve: 15,

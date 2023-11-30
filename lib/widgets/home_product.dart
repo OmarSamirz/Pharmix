@@ -13,7 +13,7 @@ class HomeProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 15, right: 15, top: 2, bottom: 2),
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 2),
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(

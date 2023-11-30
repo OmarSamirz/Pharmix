@@ -73,13 +73,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                               : null,
                         ),
                     const Spacer(),
-                    if (secondLeading != null)
-                      Padding(
-                        padding: EdgeInsets.only(
-                          right: (thirdLeading != null) ? 12 : 0,
-                        ),
-                        child: secondLeading!,
-                      ),
+                    if (secondLeading != null) secondLeading!,
                     if (thirdLeading != null) thirdLeading!,
                   ],
                 ),

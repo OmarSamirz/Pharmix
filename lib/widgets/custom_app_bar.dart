@@ -97,6 +97,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                             padding: EdgeInsets.only(bottom: 12.0),
                             child: CustomSearchBar(
                               isClick: false,
+                              showKeyboard: true,
                             ),
                           ),
                         ),

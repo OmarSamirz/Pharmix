@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:pharmix/Utilities/util.dart';
-import 'package:pharmix/screens/signin_screen.dart';
+import 'package:pharmix/screens/search_screen.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({
@@ -21,8 +21,7 @@ class CustomSearchBar extends StatelessWidget {
       child: InkWell(
         onTap: () {
           if (!isClick) return;
-          goToScreen(
-              context, const SignInScreen(), PageTransitionType.rightToLeft);
+          goToScreen(context, const SearchScreen(), PageTransitionType.fade);
         },
         overlayColor:
             MaterialStateColor.resolveWith((states) => Colors.transparent),

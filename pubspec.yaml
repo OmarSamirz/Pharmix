@@ -39,7 +39,7 @@ dependencies:
   google_sign_in: ^6.1.6
   sign_in_with_apple: ^5.0.0
   curved_navigation_bar: ^1.0.3
-  flutter_riverpod: ^2.4.8
+  flutter_riverpod: ^2.4.9
   intl: ^0.18.1
 
 dev_dependencies:
@@ -51,7 +51,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

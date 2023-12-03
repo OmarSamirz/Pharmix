@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/data/product_list.dart';
-import 'package:pharmix/widgets/category_widget.dart';
+import 'package:pharmix/widgets/home_category_widget.dart';
 import 'package:pharmix/widgets/custom_search_bar.dart';
 import 'package:pharmix/widgets/home_product.dart';
 import 'package:pharmix/widgets/icon_component.dart';
@@ -106,10 +106,10 @@ class _HomeScreen extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CategoryWidget(icon: locationIcon, title: 'Antibiotics'),
-                CategoryWidget(icon: locationIcon, title: 'Antibiotics'),
-                CategoryWidget(icon: locationIcon, title: 'Antibiotics'),
-                CategoryWidget(icon: locationIcon, title: 'Antibiotics'),
+                HomeCategoryWidget(icon: locationIcon, title: 'Antibiotics'),
+                HomeCategoryWidget(icon: locationIcon, title: 'Antibiotics'),
+                HomeCategoryWidget(icon: locationIcon, title: 'Antibiotics'),
+                HomeCategoryWidget(icon: locationIcon, title: 'Antibiotics'),
               ],
             ),
             Expanded(

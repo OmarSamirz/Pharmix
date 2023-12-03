@@ -61,8 +61,7 @@ class BlueButton extends StatelessWidget {
           }
         },
         style: ButtonStyle(
-          overlayColor:
-              MaterialStateColor.resolveWith((states) => Colors.transparent),
+          overlayColor: MaterialStateColor.resolveWith((states) => priceColor),
           backgroundColor:
               MaterialStateColor.resolveWith((states) => blueColor),
           shape: MaterialStateProperty.resolveWith(

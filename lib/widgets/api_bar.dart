@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
 
 class APIBar extends StatelessWidget {
@@ -31,11 +32,11 @@ class APIBar extends StatelessWidget {
         shape: CircleBorder(),
         shadows: [
           BoxShadow(
-            color: Color(0x3F000000),
-            blurRadius: 4,
-            offset: Offset(0, 4.5),
-            spreadRadius: 0,
-          )
+            color: Color(0x3F8FBDFD),
+            blurRadius: 10,
+            offset: Offset(0, 4),
+            spreadRadius: 5,
+          ),
         ],
       ),
       child: ElevatedButton(
@@ -47,12 +48,12 @@ class APIBar extends StatelessWidget {
           backgroundColor:
               MaterialStateColor.resolveWith((states) => Colors.white),
           overlayColor:
-              MaterialStateColor.resolveWith((states) => Colors.transparent),
+              MaterialStateColor.resolveWith((states) => primaryColor),
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset(imagePath, height: 45, width: 45),
+            padding: const EdgeInsets.all(18.0),
+            child: Image.asset(imagePath, height: 35, width: 35),
           ),
         ),
       ),

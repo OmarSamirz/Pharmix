@@ -123,7 +123,9 @@ class FavoriteProduct extends StatelessWidget {
                 child: Center(
                   child: SizedBox(
                     height: MediaQuery.sizeOf(context).height / 25,
-                    child: const CustomOutlinedButton(),
+                    child: const CustomOutlinedButton(
+                      title: 'Add to cart',
+                    ),
                   ),
                 ),
               ),

@@ -76,14 +76,15 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: TextButton(
                     onPressed: () {},
                     style: ButtonStyle(
-                      foregroundColor: MaterialStateColor.resolveWith(
-                          (states) => const Color(0xFF878787)),
-                      textStyle: MaterialStateTextStyle.resolveWith(
-                        (states) => const TextStyle(color: Colors.black),
-                      ),
-                      overlayColor: MaterialStateColor.resolveWith(
-                          (states) => Colors.transparent),
-                    ),
+                        foregroundColor: MaterialStateColor.resolveWith(
+                            (states) => const Color(0xFF878787)),
+                        textStyle: MaterialStateTextStyle.resolveWith(
+                          (states) => const TextStyle(color: Colors.black),
+                        ),
+                        overlayColor: MaterialStateColor.resolveWith(
+                            (states) => Colors.transparent),
+                        padding: MaterialStateProperty.resolveWith(
+                            (states) => EdgeInsets.zero)),
                     child: const Text(
                       'Forget Password?',
                     ),

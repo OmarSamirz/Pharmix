@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 
-class CategoryWidget extends StatelessWidget {
-  const CategoryWidget({
+class HomeCategoryWidget extends StatelessWidget {
+  const HomeCategoryWidget({
     super.key,
     required this.icon,
     required this.title,

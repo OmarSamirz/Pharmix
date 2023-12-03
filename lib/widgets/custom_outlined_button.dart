@@ -4,7 +4,10 @@ import 'package:pharmix/Utilities/colors.dart';
 class CustomOutlinedButton extends StatelessWidget {
   const CustomOutlinedButton({
     super.key,
+    required this.title,
   });
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class CustomOutlinedButton extends StatelessWidget {
         ),
       ),
       child: Text(
-        'Add to Cart',
+        title,
         style: TextStyle(
           fontSize: 13,
           color: priceColor,

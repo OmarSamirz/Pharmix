@@ -5,6 +5,7 @@ import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/screens/favorite_screen.dart';
 import 'package:pharmix/screens/home_screen.dart';
 import 'package:pharmix/screens/order_screen.dart';
+import 'package:pharmix/screens/profile_screen.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({super.key});
@@ -37,6 +38,9 @@ class _TabScreen extends State<TabScreen> {
         break;
       case 2:
         activeScreen = const OrderScreen();
+        break;
+      case 3:
+        activeScreen = const ProfileScreen();
         break;
       default:
         activeScreen = const HomeScreen();

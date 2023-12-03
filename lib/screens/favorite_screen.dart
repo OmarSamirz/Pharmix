@@ -21,7 +21,7 @@ class _FavoriteScreen extends State<FavoriteScreen> {
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent,
       appBar: CustomAppBar(
-        title: 'Favorites',
+        title: 'Favorites ya samir',
         firstLeading: IconComponent(
           icon: filterIcon,
         ),

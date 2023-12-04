@@ -84,7 +84,8 @@ class FavoriteProduct extends StatelessWidget {
                     product.name,
                     style: TextStyle(
                       color: primaryTextColor,
-                      fontSize: 15,
+                      // fontSize: 15,
+                      fontSize: MediaQuery.sizeOf(context).width * 0.038,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 1,

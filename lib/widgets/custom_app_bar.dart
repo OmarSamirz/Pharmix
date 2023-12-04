@@ -28,15 +28,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Container(
-        decoration: const ShapeDecoration(
+        decoration: ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(35),
-              bottomRight: Radius.circular(35),
+              bottomLeft: Radius.circular((Platform.isAndroid)? 35 : 25),
+              bottomRight: Radius.circular((Platform.isAndroid)? 35 : 25),
             ),
           ),
-          shadows: [
+          shadows: const [
             BoxShadow(
               color: Color(0x3F8FBDFD),
               blurRadius: 10,

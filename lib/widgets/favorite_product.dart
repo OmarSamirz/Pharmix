@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';

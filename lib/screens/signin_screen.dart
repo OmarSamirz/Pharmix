@@ -144,23 +144,28 @@ class _SignInScreenState extends State<SignInScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  // crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    APIBar(
-                      signType: 'apple',
-                      isIn: true,
-                    ),
-                    APIBar(
-                      signType: 'google',
-                      isIn: true,
-                    ),
-                    APIBar(
-                      signType: 'facebook',
-                      isIn: true,
-                    ),
-                  ],
+                const Padding(
+                  padding: EdgeInsets.only(left: 15, right: 15),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      APIBar(
+                        signType: 'apple',
+                        isIn: true,
+                      ),
+                      Spacer(),
+                      APIBar(
+                        signType: 'google',
+                        isIn: true,
+                      ),
+                      Spacer(),
+                      APIBar(
+                        signType: 'facebook',
+                        isIn: true,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

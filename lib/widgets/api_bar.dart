@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
+import 'package:pharmix/Utilities/size_helpers.dart';
 
 class APIBar extends StatelessWidget {
   const APIBar({
@@ -52,8 +53,10 @@ class APIBar extends StatelessWidget {
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Image.asset(imagePath, height: 35, width: 35),
+            padding: EdgeInsets.all(screenWidthSize(context) * 0.001),
+            child: Image.asset(imagePath,
+                height: screenHeightSize(context) * 0.09,
+                width: screenWidthSize(context) * 0.09),
           ),
         ),
       ),

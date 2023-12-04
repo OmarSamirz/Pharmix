@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
+import 'package:pharmix/Utilities/size_helpers.dart';
 import 'package:pharmix/models/product.dart';
 import 'package:pharmix/widgets/custom_outlined_button.dart';
 import 'package:pharmix/widgets/icon_component.dart';
@@ -75,7 +76,8 @@ class FavoriteProduct extends StatelessWidget {
                     product.category,
                     style: TextStyle(
                       color: fourthTextColor,
-                      fontSize: 15,
+                      // fontSize: 15,,
+                      fontSize: screenWidthSize(context) * 0.038,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

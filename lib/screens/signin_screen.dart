@@ -136,6 +136,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             width: 1,
                             strokeAlign: BorderSide.strokeAlignCenter,
                             color: Color(0xFF5C5C5C),
+                            // color: Colors.red,
                           ),
                         ),
                       ),

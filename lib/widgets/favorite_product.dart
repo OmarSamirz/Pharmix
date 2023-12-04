@@ -81,7 +81,7 @@ class FavoriteProduct extends StatelessWidget {
                     product.category,
                     style: TextStyle(
                       color: fourthTextColor,
-                      // fontSize: 15,
+                      // fontSize: 15,,
                       fontSize: screenWidthSize(context) * 0.038,
                     ),
                     maxLines: 1,

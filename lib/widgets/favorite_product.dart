@@ -25,7 +25,6 @@ class FavoriteProduct extends StatelessWidget {
         bottom: 10,
       ),
       child: Container(
-        // width: screenWidthSize(context)*0.5,
         decoration: ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(
@@ -34,7 +33,6 @@ class FavoriteProduct extends StatelessWidget {
           shadows: const [
             BoxShadow(
               color: Color(0x3F8FBDFD),
-              // color: Colors.black,
               blurRadius: 10,
               offset: Offset(0, 4),
               spreadRadius: 3,
@@ -51,10 +49,8 @@ class FavoriteProduct extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10),
                     child: Image.asset(
                       'assets/images/product_image.png',
-                      // width: 120,
-                      width: screenWidthSize(context)*0.35,
-                      // height: 120,
-                      height: screenHeightSize(context)*0.14,
+                      width: 120,
+                      height: 120,
                     ),
                   ),
                 ),
@@ -65,7 +61,6 @@ class FavoriteProduct extends StatelessWidget {
                     child: IconComponent(
                       icon: heartIcon,
                       color: redColor,
-                      size: screenWidthSize(context)* 0.045,
                     ),
                   ),
                 ),
@@ -92,7 +87,7 @@ class FavoriteProduct extends StatelessWidget {
                     style: TextStyle(
                       color: primaryTextColor,
                       // fontSize: 15,
-                      fontSize: screenWidthSize(context) * 0.038,
+                      fontSize: MediaQuery.sizeOf(context).width * 0.038,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 1,

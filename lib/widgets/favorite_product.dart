@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
+import 'package:pharmix/Utilities/size_helpers.dart';
 import 'package:pharmix/models/product.dart';
 import 'package:pharmix/widgets/custom_outlined_button.dart';
 import 'package:pharmix/widgets/icon_component.dart';
@@ -24,6 +26,7 @@ class FavoriteProduct extends StatelessWidget {
         bottom: 10,
       ),
       child: Container(
+        // width: screenWidthSize(context)*0.5,
         decoration: ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(
@@ -32,6 +35,7 @@ class FavoriteProduct extends StatelessWidget {
           shadows: const [
             BoxShadow(
               color: Color(0x3F8FBDFD),
+              // color: Colors.black,
               blurRadius: 10,
               offset: Offset(0, 4),
               spreadRadius: 3,
@@ -48,8 +52,10 @@ class FavoriteProduct extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 10),
                     child: Image.asset(
                       'assets/images/product_image.png',
-                      width: 120,
-                      height: 120,
+                      // width: 120,
+                      width: screenWidthSize(context)*0.35,
+                      // height: 120,
+                      height: screenHeightSize(context)*0.14,
                     ),
                   ),
                 ),
@@ -60,6 +66,7 @@ class FavoriteProduct extends StatelessWidget {
                     child: IconComponent(
                       icon: heartIcon,
                       color: redColor,
+                      size: screenWidthSize(context)* 0.045,
                     ),
                   ),
                 ),
@@ -75,7 +82,8 @@ class FavoriteProduct extends StatelessWidget {
                     product.category,
                     style: TextStyle(
                       color: fourthTextColor,
-                      fontSize: 15,
+                      // fontSize: 15,
+                      fontSize: screenWidthSize(context) * 0.038,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -84,7 +92,8 @@ class FavoriteProduct extends StatelessWidget {
                     product.name,
                     style: TextStyle(
                       color: primaryTextColor,
-                      fontSize: 15,
+                      // fontSize: 15,
+                      fontSize: screenWidthSize(context) * 0.038,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 1,

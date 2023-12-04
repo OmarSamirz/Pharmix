@@ -53,7 +53,7 @@ class APIBar extends StatelessWidget {
         ),
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(screenWidthSize(context) * 0.001),
+            padding: EdgeInsets.all(screenWidthSize(context) * 0.00001),
             child: Image.asset(imagePath,
                 height: screenHeightSize(context) * 0.09,
                 width: screenWidthSize(context) * 0.09),

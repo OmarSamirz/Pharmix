@@ -91,6 +91,8 @@ class HomeProduct extends StatelessWidget {
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.lineThrough,
+                    decorationColor: Colors.red,
+                    decorationThickness: 1.5,
                   ),
                 ),
               ],

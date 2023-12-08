@@ -18,59 +18,63 @@ class IconComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: AlignmentDirectional.center,
-      children: [
-        Container(
-          width: 35,
-          height: 35,
-          decoration: const ShapeDecoration(
-            color: Colors.white,
-            shape: OvalBorder(),
-            shadows: [
-              BoxShadow(
-                color: Color(0x3F8FBDFD),
-                blurRadius: 10,
-                offset: Offset(0, 4),
-                spreadRadius: 4,
-              ),
-            ],
+    return SizedBox(
+      height: 35,
+      width: 35,
+      child: Stack(
+        alignment: AlignmentDirectional.center,
+        children: [
+          Container(
+            width: 35,
+            height: 35,
+            decoration: const ShapeDecoration(
+              color: Colors.white,
+              shape: OvalBorder(),
+              shadows: [
+                BoxShadow(
+                  color: Color(0x3F8FBDFD),
+                  blurRadius: 10,
+                  offset: Offset(0, 4),
+                  spreadRadius: 4,
+                ),
+              ],
+            ),
           ),
-        ),
-        Container(
-          width: 25,
-          height: 25,
-          decoration: const ShapeDecoration(
-            color: Colors.white,
-            shape: OvalBorder(),
-            shadows: [
-              BoxShadow(
-                color: Color(0x3F8FBDFD),
-                blurRadius: 4,
-                offset: Offset(0, 4),
-                spreadRadius: 2,
-              ),
-            ],
+          Container(
+            width: 25,
+            height: 25,
+            decoration: const ShapeDecoration(
+              color: Colors.white,
+              shape: OvalBorder(),
+              shadows: [
+                BoxShadow(
+                  color: Color(0x3F8FBDFD),
+                  blurRadius: 4,
+                  offset: Offset(0, 4),
+                  spreadRadius: 2,
+                ),
+              ],
+            ),
           ),
-        ),
-        IconButton(
-          icon: ImageIcon(
-            AssetImage(icon),
-            color: color ?? const Color(0xFF4495FE),
-            size: size ?? 20,
+          IconButton(
+            icon: ImageIcon(
+              AssetImage(icon),
+              color: color ?? const Color(0xFF4495FE),
+              size: size ?? 20,
+            ),
+            style: ButtonStyle(
+              overlayColor: MaterialStateColor.resolveWith(
+                  (states) => Colors.transparent),
+            ),
+            onPressed: () {
+              if (chosenScreen != null) {
+                goToScreen(
+                    context, chosenScreen!, PageTransitionType.leftToRight);
+              }
+            },
           ),
-          style: ButtonStyle(
-            overlayColor:
-                MaterialStateColor.resolveWith((states) => Colors.transparent),
-          ),
-          onPressed: () {
-            if (chosenScreen != null) {
-              goToScreen(
-                  context, chosenScreen!, PageTransitionType.leftToRight);
-            }
-          },
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

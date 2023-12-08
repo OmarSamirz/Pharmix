@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmix/Utilities/colors.dart';
+import 'package:pharmix/Utilities/image_path.dart';
 import 'package:pharmix/models/product.dart';
 
 class HomeProduct extends StatelessWidget {
@@ -33,7 +34,7 @@ class HomeProduct extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(
-              'assets/images/product_image.png',
+              productImage,
               width: 85,
               height: 85,
             ),

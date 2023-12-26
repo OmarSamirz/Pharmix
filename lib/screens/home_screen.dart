@@ -24,8 +24,8 @@ class HomeScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 10.0),
                     child: IconComponent(icon: locationIcon),
                   ),
                   Column(
@@ -48,11 +48,11 @@ class HomeScreen extends ConsumerWidget {
                     ],
                   ),
                   const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 10.0),
                     child: IconComponent(icon: cartIcon),
                   ),
-                  IconComponent(icon: notificationIcon),
+                  const IconComponent(icon: notificationIcon),
                 ],
               ),
             ),
@@ -103,7 +103,7 @@ class HomeScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 HomeCategoryWidget(icon: locationIcon, title: 'Antibiotics'),

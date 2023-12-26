@@ -41,6 +41,7 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   flutter_riverpod: ^2.4.9
   intl: ^0.18.1
+  mysql_utils: ^2.1.4
 
 dev_dependencies:
   flutter_test:

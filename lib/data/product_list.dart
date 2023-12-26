@@ -10,6 +10,8 @@ var product1 = const Product(
   category: 'analgesic',
   amount: '60 Capsules in Bottle',
   isDiscount: true,
+  description: '',
+  isPrescription: false,
 );
 
 var productList = [

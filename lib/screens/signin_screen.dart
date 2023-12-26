@@ -1,23 +1,85 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mysql_utils/mysql_utils.dart';
 import 'package:pharmix/Utilities/colors.dart';
+import 'package:pharmix/data/data_query.dart';
+import 'package:pharmix/models/user.dart';
+import 'package:pharmix/providers/user_provider.dart';
 import 'package:pharmix/screens/tab_screen.dart';
 import 'package:pharmix/widgets/api_bar.dart';
 import 'package:pharmix/widgets/custom_app_bar.dart';
 import 'package:pharmix/widgets/blue_button.dart';
 import 'package:pharmix/widgets/text_bar.dart';
 
-class SignInScreen extends StatefulWidget {
+class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  ConsumerState<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInScreenState extends ConsumerState<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
-  bool _checkInputs() {
-    if (_formKey.currentState!.validate()) return true;
+  String? _emailTextValidator;
+  String? _passwordTextValidator;
+
+  @override
+  void dispose() {
+    super.dispose();
+    email.dispose();
+    password.dispose();
+  }
+
+  Future<String?> _emailValidate() async {
+    if (await findEmail(email.text) == false) {
+      return 'Email not found';
+    }
+    return null;
+  }
+
+  Future<(String?, ResultFormat?)> _passwordValidate() async {
+    var result = await findPassword(email.text, password.text);
+    if (result.$1 == false) {
+      return ('Incorrect password', null);
+    }
+    return (null, result.$2);
+  }
+
+  Future<bool> _checkInputs() async {
+    var validateEmail = await _emailValidate();
+    var validatePassword = await _passwordValidate();
+    if (validateEmail != null) {
+      setState(() {
+        _emailTextValidator = validateEmail;
+      });
+    } else {
+      setState(() {
+        _emailTextValidator = null;
+      });
+    }
+    if (validatePassword.$1 != null) {
+      setState(() {
+        _passwordTextValidator = validatePassword.$1;
+      });
+    } else {
+      setState(() {
+        _passwordTextValidator = null;
+      });
+    }
+
+    if (_formKey.currentState!.validate()) {
+      ref.read(userNotifier.notifier).updateUser(User(
+            userID: validatePassword.$2!.rows[0]['user_id'],
+            fname: validatePassword.$2!.rows[0]['first_name'],
+            lname: validatePassword.$2!.rows[0]['last_name'],
+            email: validatePassword.$2!.rows[0]['email'],
+            password: validatePassword.$2!.rows[0]['password'],
+          ));
+      return true;
+    }
 
     return false;
   }
@@ -51,25 +113,33 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 const SizedBox(height: 40),
-                const TextBar(
+                TextBar(
                   hintText: 'Email',
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.email_rounded,
                     color: Color(0xFFB5B5B5),
                   ),
                   radius: 15,
                   keyboardType: TextInputType.emailAddress,
+                  validator: () {
+                    return _emailTextValidator;
+                  },
+                  textEditingController: email,
                 ),
                 const SizedBox(height: 20),
-                const TextBar(
+                TextBar(
                   hintText: 'Password',
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.password_rounded,
                     color: Color(0xFFB5B5B5),
                   ),
                   radius: 15,
                   isPassword: true,
                   fontWeight: FontWeight.bold,
+                  validator: () {
+                    return _passwordTextValidator;
+                  },
+                  textEditingController: password,
                 ),
                 Align(
                   alignment: Alignment.centerRight,

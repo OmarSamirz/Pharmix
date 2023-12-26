@@ -25,7 +25,7 @@ class BlueButton extends StatelessWidget {
   final double? radiusCurve;
   final double? spreadRadius;
   final Widget? chosenScreen;
-  final bool Function()? checkInputs;
+  final Future<bool> Function()? checkInputs;
 
   void goToScreenBlueButton(BuildContext context) {
     if (chosenScreen == null) return;
@@ -55,9 +55,14 @@ class BlueButton extends StatelessWidget {
         ],
       ),
       child: ElevatedButton(
-        onPressed: () {
-          if (checkInputs!() == true) {
-            goToScreenBlueButton(context);
+        onPressed: () async {
+          if (await checkInputs!() == true) {
+            if (title == 'Sign In' || title == 'Sign Up') {
+              await Future.delayed(const Duration(seconds: 2));
+            }
+            if (context.mounted) {
+              goToScreenBlueButton(context);
+            }
           }
         },
         style: ButtonStyle(

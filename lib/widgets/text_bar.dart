@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TextBar extends StatelessWidget {
+//ignore: must_be_immutable
+class TextBar extends StatefulWidget {
   const TextBar({
     super.key,
     this.width,
@@ -12,6 +13,8 @@ class TextBar extends StatelessWidget {
     this.isPassword = false,
     this.passwordCharacter = '*',
     this.fontWeight,
+    this.textEditingController,
+    this.validator = defaultValidator,
   });
 
   final double? width;
@@ -23,17 +26,29 @@ class TextBar extends StatelessWidget {
   final bool? isPassword;
   final String? passwordCharacter;
   final FontWeight? fontWeight;
+  final TextEditingController? textEditingController;
+  final String? Function() validator;
 
+  static String? defaultValidator() {
+    // Your default validation logic here
+    return null; // Return null if input is valid, otherwise return an error message
+  }
+
+  @override
+  State<TextBar> createState() => _TextBarState();
+}
+
+class _TextBarState extends State<TextBar> {
   @override
   Widget build(BuildContext context) {
     double width = 0.0;
     double height = 0.0;
-    if (this.width == null && this.height == null) {
+    if (widget.width == null && widget.height == null) {
       width = MediaQuery.sizeOf(context).width;
       height = width * (13 / 70);
     } else {
-      width = this.width!;
-      height = this.height!;
+      width = widget.width!;
+      height = widget.height!;
     }
 
     return Stack(
@@ -42,7 +57,7 @@ class TextBar extends StatelessWidget {
           height: height / 1.26,
           width: width,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(radius)),
+            borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
             boxShadow: const [
               BoxShadow(
                 color: Color(0x3F000000),
@@ -55,46 +70,38 @@ class TextBar extends StatelessWidget {
         ),
         TextFormField(
           validator: (value) {
-            if (isPassword == true) {
-              if (value == null || value.isEmpty || value.length <= 1) {
-                return 'Invalid Password';
-              }
-            } else if (isPassword == false) {
-              if (value == null || value.isEmpty || value.length <= 1) {
-                return 'Invalid Email';
-              }
-            }
-            return null;
+            return widget.validator();
           },
-          keyboardType: keyboardType,
-          obscuringCharacter: passwordCharacter!,
-          obscureText: isPassword!,
+          controller: widget.textEditingController,
+          keyboardType: widget.keyboardType,
+          obscuringCharacter: widget.passwordCharacter!,
+          obscureText: widget.isPassword!,
           cursorColor: Colors.grey,
           style: TextStyle(
             fontSize: 20,
             color: Colors.black,
-            fontWeight: fontWeight,
+            fontWeight: widget.fontWeight,
           ),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.only(
               top: height / 2.5,
-              left: this.width ?? 15,
-              right: this.width ?? 15,
+              left: widget.width ?? 15,
+              right: widget.width ?? 15,
             ),
             filled: true,
             fillColor: Colors.white,
-            hintText: hintText,
+            hintText: widget.hintText,
             hintStyle: const TextStyle(
               fontSize: 20,
               color: Color(0xFFB5B5B5),
             ),
-            prefixIcon: prefixIcon,
+            prefixIcon: widget.prefixIcon,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(radius)),
+              borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
               borderSide: BorderSide.none,
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(radius)),
+              borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
               borderSide: BorderSide.none,
             ),
           ),

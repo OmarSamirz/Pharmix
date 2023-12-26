@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pharmix/Utilities/colors.dart';
 import 'package:pharmix/Utilities/image_path.dart';
-import 'package:pharmix/data/product_list.dart';
+import 'package:pharmix/providers/products_provider.dart';
 import 'package:pharmix/widgets/home_category_widget.dart';
 import 'package:pharmix/widgets/custom_search_bar.dart';
 import 'package:pharmix/widgets/home_product.dart';
 import 'package:pharmix/widgets/icon_component.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({
     super.key,
   });
 
   @override
-  State<HomeScreen> createState() {
-    return _HomeScreen();
-  }
-}
-
-class _HomeScreen extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
@@ -30,7 +24,10 @@ class _HomeScreen extends State<HomeScreen> {
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: Row(
                 children: [
-                  IconComponent(icon: locationIcon),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10.0),
+                    child: IconComponent(icon: locationIcon),
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -51,7 +48,10 @@ class _HomeScreen extends State<HomeScreen> {
                     ],
                   ),
                   const Spacer(),
-                  IconComponent(icon: cartIcon),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10.0),
+                    child: IconComponent(icon: cartIcon),
+                  ),
                   IconComponent(icon: notificationIcon),
                 ],
               ),
@@ -113,14 +113,24 @@ class _HomeScreen extends State<HomeScreen> {
               ],
             ),
             Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                itemCount: productList.length,
-                itemBuilder: (_, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: HomeProduct(product: productList[index]),
-                  );
+              child: FutureBuilder(
+                future: ref.read(productsProvider),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    // Show a loading indicator while waiting for the Future to complete
+                    return const CircularProgressIndicator();
+                  } else {
+                    return ListView.builder(
+                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 30),
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (_, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: HomeProduct(product: snapshot.data![index]),
+                        );
+                      },
+                    );
+                  }
                 },
               ),
             ),

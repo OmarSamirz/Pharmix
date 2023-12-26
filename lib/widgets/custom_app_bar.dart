@@ -26,88 +26,91 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Container(
-        decoration: ShapeDecoration(
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular((Platform.isAndroid)? 35 : 25),
-              bottomRight: Radius.circular((Platform.isAndroid)? 35 : 25),
-            ),
+    return Container(
+      decoration: ShapeDecoration(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular((Platform.isAndroid) ? 35 : 25),
+            bottomRight: Radius.circular((Platform.isAndroid) ? 35 : 25),
           ),
-          shadows: const [
-            BoxShadow(
-              color: Color(0x3F8FBDFD),
-              blurRadius: 10,
-              offset: Offset(0, 4),
-              spreadRadius: 5,
-            )
-          ],
         ),
-        child: Padding(
-          padding:
-              EdgeInsets.fromLTRB(20, isSearch == true ? 0 : 120 / 2.5, 20, 0),
-          child: Stack(
-            children: [
-              Positioned.fill(
-                child: Center(
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: primaryTextColor),
+        shadows: const [
+          BoxShadow(
+            color: Color(0x3F8FBDFD),
+            blurRadius: 10,
+            offset: Offset(0, 4),
+            spreadRadius: 5,
+          )
+        ],
+      ),
+      child: Padding(
+        padding:
+            EdgeInsets.fromLTRB(20, isSearch == true ? 0 : 120 / 2.5, 20, 0),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Center(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: primaryTextColor,
                   ),
                 ),
               ),
-              Positioned.fill(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    firstLeading ??
-                        Transform.translate(
-                          offset: const Offset(0, 0),
-                          child: (title != 'Orders' && title != 'Profile')
-                              ? const CustomBackButton()
-                              : null,
-                        ),
-                    const Spacer(),
-                    if (secondLeading != null) secondLeading!,
-                    if (thirdLeading != null) thirdLeading!,
-                  ],
-                ),
-              ),
-              if (isSearch == true)
-                Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(bottom: 12.0),
-                            child: CustomSearchBar(
-                              isClick: false,
-                              showKeyboard: true,
-                            ),
-                          ),
-                        ),
-                        if (isFilter == true)
-                          ElevatedButton(
-                            onPressed: () {},
-                            child: ImageIcon(
-                              AssetImage(filterIcon),
-                            ),
-                          ),
-                      ],
+            ),
+            Positioned.fill(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  firstLeading ??
+                      Transform.translate(
+                        offset: const Offset(0, 0),
+                        child: (title != 'Orders' && title != 'Profile')
+                            ? const CustomBackButton()
+                            : null,
+                      ),
+                  const Spacer(),
+                  if (secondLeading != null)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10.0),
+                      child: secondLeading!,
                     ),
+                  if (thirdLeading != null) thirdLeading!,
+                ],
+              ),
+            ),
+            if (isSearch == true)
+              Positioned.fill(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: 12.0),
+                          child: CustomSearchBar(
+                            isClick: false,
+                            showKeyboard: true,
+                          ),
+                        ),
+                      ),
+                      if (isFilter == true)
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: ImageIcon(
+                            AssetImage(filterIcon),
+                          ),
+                        ),
+                    ],
                   ),
                 ),
-            ],
-          ),
+              ),
+          ],
         ),
       ),
     );

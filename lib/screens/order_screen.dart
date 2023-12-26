@@ -38,7 +38,7 @@ class _OrderScreen extends State<OrderScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent,
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: 'Orders',
         secondLeading: IconComponent(icon: cartIcon, size: 18),
         thirdLeading: IconComponent(icon: notificationIcon),

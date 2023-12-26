@@ -102,7 +102,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       if (isFilter == true)
                         ElevatedButton(
                           onPressed: () {},
-                          child: ImageIcon(
+                          child: const ImageIcon(
                             AssetImage(filterIcon),
                           ),
                         ),

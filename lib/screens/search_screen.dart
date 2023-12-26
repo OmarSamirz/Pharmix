@@ -22,7 +22,7 @@ class _SearchScreen extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         // isSearch: true,
         isSearch: true,
         secondLeading: IconComponent(icon: cartIcon),

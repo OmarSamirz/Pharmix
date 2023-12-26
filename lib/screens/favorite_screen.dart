@@ -20,7 +20,7 @@ class _FavoriteScreen extends State<FavoriteScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.transparent,
-      appBar:CustomAppBar(
+      appBar: CustomAppBar(
         title: 'Favorites',
         firstLeading: IconComponent(
           icon: filterIcon,

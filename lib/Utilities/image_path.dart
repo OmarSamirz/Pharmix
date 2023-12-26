@@ -12,3 +12,4 @@ var navigationOrderIcon = 'assets/images/navigation_order_icon.png';
 var navigationProfileIcon = 'assets/images/navigation_profile_icon.png';
 var notificationIcon = 'assets/images/notification_icon.png';
 var searchIcon = 'assets/images/search_icon.png';
+var productImage = 'assets/images/product_image.png';

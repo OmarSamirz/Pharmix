@@ -40,9 +40,7 @@ dependencies:
   sign_in_with_apple: ^5.0.0
   curved_navigation_bar: ^1.0.3
   flutter_riverpod: ^2.4.9
-  intl: ^0.19.0
-  mysql_utils: ^2.1.4
-  riverpod: ^2.4.9
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -85,6 +83,10 @@ flutter:
     - assets/images/product_image.png
     - assets/images/search_icon.png
     - assets/images/top_left.png
+    - assets/images/scan_icon.png
+    - assets/images/voucher_icon.png
+    - assets/images/teenyicons_minus-solid.png
+    - assets/images/ic_twotone-plus.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

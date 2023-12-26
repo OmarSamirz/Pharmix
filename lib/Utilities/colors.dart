@@ -12,5 +12,3 @@ var fourthTextColor = const Color(0xFF7F7F7F);
 var fifthTextColor = const Color(0xFFB5B5B5);
 var redColor = const Color(0xFFF11236);
 var orderColor = const Color(0xFF6F88A7);
-var greyColor = const Color(0xFFC8C8C8);
-var discountColor = const Color(0xFF18385F);
